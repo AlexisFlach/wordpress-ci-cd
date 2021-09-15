@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Delete .env
-        run: rm -i .env
+        run: unlink .env
       - name: Create .env
         run: echo 'PORT=${{secrets.PORT }}' > .env
         
