@@ -10,10 +10,8 @@ jobs:
     
     steps:
       - uses: actions/checkout@main
-      - name: Remove .env
-        run: if [ -f .env]; then rm .env
       - name: Create .env
-        run: echo 'PORT=${{secrets.PORT }}' > .env
+        run: sudo echo 'PORT=${{secrets.PORT }}' > .env
         
       - name: Run build
         run: docker-compose up -d
