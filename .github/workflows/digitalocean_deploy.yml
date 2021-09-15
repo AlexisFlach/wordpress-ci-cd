@@ -10,8 +10,9 @@ jobs:
     
     steps:
       - uses: actions/checkout@main
-      - name: Create .env
+      - name: Remove .env
         run: if [ -f .env]; then rm .env
+      - name: Create .env
         run: echo 'PORT=${{secrets.PORT }}' > .env
         
       - name: Run build
