@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Create .env
+        run: if [ -f .env]; then rm .env
         run: echo 'PORT=${{secrets.PORT }}' > .env
         
       - name: Run build
