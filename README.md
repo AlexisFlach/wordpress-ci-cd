@@ -34,9 +34,9 @@ services:
       - db
     image: wordpress:latest
     ports:
-      - '8000:80'
+      - '${PORT}:80'
     restart: always
-    volumes: ['./html/:/var/www/html']
+    volumes: ['./:/var/www/html']
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: root
@@ -48,9 +48,6 @@ networks:
 volumes:
   db_data:
 ```
-
-
-
 ###### github actions
 
 **./github/workflows/digitaocean_depl.yml**
@@ -73,8 +70,11 @@ jobs:
         run: docker-compose up -d
 ```
 
+Create a .env file
 
-
+```
+PORT=1234
+```
 ###### github
 
 Secrets -> New repository secret
@@ -154,8 +154,8 @@ repo -> settings -> actions -> runners -> add runner
 exit
 root@ip# sudo groupadd docker
 groupadd: group 'docker' already exists
-sudo usermod -aD docker USER
-sudo su - alex
+sudo usermod -aG docker USER
+sudo su - USER
 
 cd /actions_runners/
 ./run.sh
