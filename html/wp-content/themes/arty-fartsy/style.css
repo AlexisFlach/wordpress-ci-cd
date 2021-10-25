@@ -1,0 +1,20 @@
+/*
+Theme Name: artyfartsy
+Text Domain: artyfartsy
+*/
+
+.red-bg {
+  background: linear-gradient(rgba(87, 28, 28, 0.9), rgba(0,0,0, .9));
+}
+
+header {
+  height: 10vh;
+}
+
+.generic {
+  padding: 100px 0;
+}
+
+.footer {
+  background: linear-gradient(rgba(87, 28, 28, 0.9), rgba(0,0,0, .9));
+}
